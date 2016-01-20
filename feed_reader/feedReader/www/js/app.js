@@ -32,7 +32,6 @@
                                 }
                             }
                         }
-
                         item.diffDate = diffDate;
                         item.diffDateUnits = tiempo;
                         $scope.news.push(item);
