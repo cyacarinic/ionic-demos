@@ -1,0 +1,34 @@
+<div ng-controller="controladorLista">
+    <ion-footer-bar>
+        <h1 class="title">Elementos</h1>
+        <button class="button button-icon ion-plus" ng-click="ingresarDato()"></button>
+    </ion-footer-bar>
+
+    <ion-view view-title="Elementos">
+        <ion-content>
+            <ion-list>
+                <ion-item ng-repeat="item in listItems">
+                    {{ item.name }}
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-view>
+</div>
+
+
+<!--div ng-controller="claudio">
+    <ion-footer-bar>
+        <h1 class="title">Elementos</h1>
+        <button class="button button-icon ion-plus" ng-click="ingreso()"></button>
+    </ion-footer-bar>
+
+    <ion-view view-title="Elementos">
+        <ion-content>
+            <ion-list>
+                <ion-item ng-repeat="item in listItems">
+                    {{ item.name }}
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-view>
+</div-->

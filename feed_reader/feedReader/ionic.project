@@ -1,0 +1,10 @@
+{
+  "name": "feedReader",
+  "app_id": "",
+  "proxies": [
+    {
+        "path": "/feeds",
+        "proxyUrl": "https://poder.pe/feed"
+    }
+  ]
+}
