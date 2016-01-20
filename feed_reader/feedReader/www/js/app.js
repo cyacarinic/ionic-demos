@@ -9,9 +9,34 @@
             $http.get(feed_url_development)
                 .success(function(response){
                     //console.log(response);
+                    $scope.news = [];
                     var x2js = new X2JS();
                     var json = x2js.xml_str2json( response );
-                    $scope.news = json.rss.channel.item;
+                    angular.forEach(json.rss.channel.item,function(item){
+                        d = new Date(item.pubDate);
+                        diffDate = Math.abs( (d.getTime() - Date.now())/1000 );
+                        if(diffDate<60){
+                            diffDate =  Math.floor(diffDate);
+                            tiempo = "Segundo";
+                        }else{
+                            if(diffDate<3600){
+                                diffDate =  Math.floor(diffDate/60);
+                                tiempo = "Minuto";
+                            }else{
+                                if(diffDate<86400){
+                                    diffDate =  Math.floor(diffDate/3600);
+                                    tiempo = "Hora";
+                                }else{
+                                    diffDate =  Math.floor(diffDate/86400);
+                                    tiempo = "Día";
+                                }
+                            }
+                        }
+
+                        item.diffDate = diffDate;
+                        item.diffDateUnits = tiempo;
+                        $scope.news.push(item);
+                    });
                     $scope.feedState = "onSuccess";
 
                 })

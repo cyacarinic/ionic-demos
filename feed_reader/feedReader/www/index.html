@@ -17,7 +17,7 @@
 
   <body ng-app="myreader" ng-controller="readerCtrl">
     <ion-pane>
-      <ion-header-bar class="bar-stable">
+      <ion-header-bar class="bar-dark ">
         <h1 class="title">Ionic Feed Reader</h1>
       </ion-header-bar>
       <ion-content ng-init="updateModel()">
@@ -30,9 +30,17 @@
 
           <div ng-init="cargar_feeds()">
               <div ng-if="feedState == 'onSuccess'">
-                  <div ng-repeat="item in news | limitTo:10">
-                      <a href="{{ item.link }}" target=_blank>{{ item.title }}</a>
-                  </div>
+                  <div class="list">
+                      <a href="{{ item.link }}" target=_blank ng-repeat="item in news | limitTo:10" class="item item-thumbnail-left">
+                          <img src="" alt="nuhay" ng-if="item.description.startsWith('')"/>
+                          <h2>{{ item.title }}</h2>
+                          <p ng-pluralize count="{{item.diffDate}}"
+                              when="{1: '{{item.diffDate}} {{item.diffDateUnits}}',
+                              other: '{{item.diffDate}} {{item.diffDateUnits}}s'}">
+                              {{item.diffDate}}
+                          </p>
+                      </a>
+                  </ul>
               </div>
               <div ng-if="feedState == 'onFail'">Error :v</div>
           </div>
