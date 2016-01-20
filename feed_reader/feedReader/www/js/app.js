@@ -46,8 +46,11 @@
                    $scope.$broadcast('scroll.refreshComplete');
                  });
         }
-    });
 
+        $scope.openLink = function(url){
+            window.open(url, "_blank", "location=true");
+        };
+    });
 
     app.run(function($ionicPlatform) {
       $ionicPlatform.ready(function() {

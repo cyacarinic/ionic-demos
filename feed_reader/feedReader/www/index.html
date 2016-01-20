@@ -29,9 +29,11 @@
 
 
           <div ng-init="cargar_feeds()">
+
+              <div ng-if="feedState == 'onFail'">Error :v</div>
               <div ng-if="feedState == 'onSuccess'">
                   <div class="list">
-                      <a href="{{ item.link }}" target=_blank ng-repeat="item in news | limitTo:10" class="item item-thumbnail-left">
+                      <a ng-click="openLink('{{ item.link }}')" target=_blank ng-repeat="item in news | limitTo:10" class="item item-thumbnail-left">
                           <img src="" alt="nuhay" ng-if="item.description.startsWith('')"/>
                           <h2>{{ item.title }}</h2>
                           <p>{{ item.pubDate }}</p>
@@ -41,11 +43,10 @@
                               {{item.diffDate}}
                           </p>
                       </a>
-                  </ul>
+                  </div>
               </div>
-              <div ng-if="feedState == 'onFail'">Error :v</div>
-          </div>
 
+          </div>
       </ion-content>
     </ion-pane>
   </body>
