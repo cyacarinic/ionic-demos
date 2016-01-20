@@ -48,7 +48,7 @@
         }
 
         $scope.openLink = function(url){
-            window.open(url, "_blank", "location=true");
+            window.open(url, "_blank", "location=no");
         };
     });
 
