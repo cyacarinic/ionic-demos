@@ -3,10 +3,15 @@
         <ion-content>
             <div class="list card">
                 <div class="item-input">
-                    <input type="text" value="{{nota.titulo}}"/>
+                    <input type="text" ng-model="nota.titulo"/>
                 </div>
                 <div class="item-input">
-                    <textarea>{{nota.descripcion}}</textarea>
+                    <textarea ng-model="nota.descripcion"></textarea>
+                </div>
+            </div>
+            <div class="list card">
+                <div class="padding">
+                    <button class="button button-block button-positive" ng-click="guardarNota()">Guardar</button>
                 </div>
             </div>
         </ion-content>
