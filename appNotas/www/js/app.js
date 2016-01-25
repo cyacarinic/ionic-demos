@@ -10,6 +10,12 @@ angular.module('starter', ['ionic',
             })
             .state('edit',{
                 url:'/edit/:id',
+                controller:'editCtrl',
+                templateUrl:'/templates/edit.html'
+            })
+            .state('create',{
+                url:'/create',
+                controller:'createCtrl',
                 templateUrl:'/templates/edit.html'
             });
         $urlRouterProvider.otherwise('/list');
