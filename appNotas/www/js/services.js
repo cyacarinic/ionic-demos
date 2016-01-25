@@ -29,6 +29,15 @@ angular.module('starter.services',[])
                         return;
                     }
                 }
+            },
+            delete: function(id){
+                for(var i=0; i<lista_notas.length; i++){
+                    if(lista_notas[i].id == id){
+                        lista_notas.splice(i, 1);
+                        persist();
+                        return;
+                    }
+                }
             }
         };
     });
