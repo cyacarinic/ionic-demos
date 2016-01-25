@@ -1,7 +1,7 @@
 /**
  * Created by cyacarini on 25/01/16.
  */
-angular.module('starter.controllers', ['ionic'])
-    .controller('listCtrl', function($scope, lista_notas){
-        $scope.notas = lista_notas;
+angular.module('starter.controllers', [])
+    .controller('listCtrl', function($scope, noteStorage){
+        $scope.notas = noteStorage.list();
     });
