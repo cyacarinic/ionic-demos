@@ -34,7 +34,7 @@
               <div ng-if="feedState == 'onSuccess'">
                   <div class="list">
                       <a ng-click="openLink('{{ item.link }}')" target=_blank ng-repeat="item in news | limitTo:10" class="item item-thumbnail-left">
-                          <img src="" alt="nuhay" ng-if="item.description.startsWith('')"/>
+                          <img src="{{item.image}}" alt="nuhay" ng-if="item.image.startsWith('https://poder')"/>
                           <h2>{{ item.title }}</h2>
                           <p>{{ item.pubDate }}</p>
                           <p ng-pluralize count="{{item.diffDate}}"
